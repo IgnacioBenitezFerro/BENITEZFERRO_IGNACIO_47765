@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <u><h1>Offers available</h1></u>
+
+    {% if tickers %}
+
+        {% for tick in tickers %}
+        
+            <li>Ticker: {{tick.ticker}} </li>
+            <li> Bidder: {{tick.nombre}} </li>
+            <li> Contact Mail: {{tick.mail}} </li>
+            <li> Price: {{tick.precio}} <br><br>
+            
+            
+            <button>
+                <a href="{% url 'DeleteSTicker' tick.mail %}"> Delete </a>
+            </button> 
+            
+            <button>
+                <a href="{% url 'editseller' tick.id %}">Edit</a>
+            </button>
+            <br>
+            --------------
+        {% endfor %}
+
+    {% else %}
+
+            <h3> No positions found! <h3/>
+    
+    {% endif %}
+
+    <form action="/APPFE/seller/" method="GET">
+    
+        <input type="submit" value="Back">
+    
+    </form>
+
+
+
+
+
+</body>
+</html>

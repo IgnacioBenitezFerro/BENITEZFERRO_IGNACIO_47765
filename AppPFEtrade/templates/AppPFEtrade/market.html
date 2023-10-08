@@ -1,0 +1,80 @@
+{% extends "AppPFEtrade/padre.html" %}
+{% load static %}
+{% block titulo %}  
+
+<h1><u> Welcome to the market!</h1></u>
+<br>
+<h5> Please take a look at our multiple positions! </h5>
+<br><br>
+
+<h6>   Ahead you can search a vast variety of positions we have, or add new ones if you have the permit: </h6>
+<br><br>
+
+<form action="/APPFE/marketform/" method="POST"> {% csrf_token %}
+    
+    <ul><u><h5>Add ticker</h5></u></ul>
+
+    <ul><p> Position: <input type="text" name = "pos" ></p></ul>
+    <ul><p> Ticker: <input  type="text" name = "tck" ></p></ul>
+    <ul><p> Price: <input   type="number" name = "pri" ></p></ul>
+    
+
+    <ul><input type="submit" value="Add"></ul>
+    
+
+</form>
+<br><br>
+
+
+<ul><u><h5>Want to delete/edit? </h5></u></ul>
+
+<br><br>
+
+<form action="/APPFE/marketupdate/" method="GET">
+
+    <ul><input type="submit" value="Delete / Edit"></ul>
+
+    <br><br>
+
+
+</form>
+
+<ul><u><h5>Find ticker </h5></u></ul>
+<form action="/APPFE/result/" method="GET" >
+
+
+    <ul><input type="text" name="ticker" id="ticker"></ul>
+
+    <ul><input type="submit" value = "Search Ticker"></ul>
+
+
+</form>
+
+
+<ul><p>Searching ticker: {{ ticker }}</p></ul>
+
+
+    {% if markets %}
+
+    <ul><p>Ticker/s found : </p></ul>
+
+        {% for market in markets %}
+
+            <ul><li> {{ticker}} </li></ul>
+
+        {% endfor %}
+
+    {% else %}
+
+        <ul><p> Ticker not found: {{ticker}} </p></ul>
+
+    {% endif %}
+
+
+    
+
+
+
+
+
+{% endblock %}

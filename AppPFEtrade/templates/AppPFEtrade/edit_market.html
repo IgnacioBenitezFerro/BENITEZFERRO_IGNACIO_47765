@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Market Position</title>
+</head>
+<body>
+    
+<u><h1>Edit Market Position</h1></u>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Actualizar</button>
+</form>
+
+<form action="/APPFE/market/" method="GET">
+    <input type="submit" value="Back">
+</form>
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+{% extends "AppPFEtrade/padre.html" %}
+
+{% load static %}
+
+{% block titulo %}  
+
+<h1> Buyers </h1> <br>
+
+<p> Buyers make the market demand possible, and give positions the value they have. It comprehends 50% of total market structure.
+
+    <br><br> Do you want to buy somehting? Hop on with these basic data and a mail will be sent to your inbox with more data!
+</p>
+
+<ul><u><h5>Add your offer</h5></u></ul>
+<form action="/APPFE/buyerform/" method="POST"> {% csrf_token %}
+
+    <ul><p> Name: <input type="text" name = "name" ></p></ul>
+    <ul><p> Surname: <input type="text" name = "srname" ></p></ul>
+    <ul><p> Email: <input type="email" name = "mail" ></p></ul>
+    <ul><p> Ticker: <input  type="text" name = "tcker" ></p></ul>
+    <ul><p> Price: <input   type="number" name = "price" ></p></ul>
+    
+
+    <ul><input type="submit" value="Add"></ul>
+    
+
+</form>
+<br><br>
+    <ul><h3><u> Find actual asks right now! </h3><ul/><ul/>
+
+<form action="/APPFE/buyerticker/" ><br><br>
+
+   <input type="submit" value="Find">
+
+</form>
+
+
+{% endblock %}

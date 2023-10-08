@@ -1,0 +1,42 @@
+{% extends "AppPFEtrade/padre.html" %}
+{% load static %}
+{% block titulo %}  
+
+
+<h1> Sellers </h1> <br>
+
+<p> Sellers or 'bears', tend to be seen as pesimist watchers and accionists of the market, but without them market couldn't rise buy/sell ofert is a pefect stability in the economics sector.
+    <br><br>
+    Any offer to ulpload? Plenty of buyers wait for the perfect shot, maybe it's yours! Submit
+    the following information and we'll kindly contact you back! 
+</p>
+
+<br><br>
+
+<ul><ul><u><h5>Add your offer</h5></u></ul></ul>
+
+<form action="/APPFE/sellerform/" method="POST"> {% csrf_token %}
+
+    <ul><p> Name: <input type="text" name = "name" ></p></ul>
+    <ul><p> Surname: <input type="text" name = "srname" ></p></ul>
+    <ul><p> Email: <input type="email" name = "mail" ></p></ul>
+    <ul><p> Ticker: <input  type="text" name = "tcker" ></p></ul>
+    <ul><p> Price: <input   type="number" name = "price" ></p></ul>
+    
+
+    <ul><input type="submit" value="Add"></ul>
+    
+
+</form>
+<br><br>
+<ul><h3><u> Find actual bids right now! </h3></ul></u>
+
+<ul><form action="/APPFE/sellerticker/"> <br><br></ul>
+
+    <ul><input type="submit" value="Find"></ul>
+
+    </form>
+
+{% endblock %}
+
+

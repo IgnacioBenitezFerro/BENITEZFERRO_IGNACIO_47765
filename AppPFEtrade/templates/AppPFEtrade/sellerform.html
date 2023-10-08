@@ -1,0 +1,27 @@
+{% extends "AppPFEtrade/padre.html" %}
+{% load static %}
+{% block titulo %}  
+
+<h1> Acá agregamos vendedores! </h1>
+<br>
+<h5> Please upload your seller profile: </h5>
+<br><br>
+
+<form action="/APPFE/sellerform/" method="POST"> {% csrf_token %}
+
+    <p> Name: <input type="text" name = "name" ></p>
+    <p> Surname: <input type="text" name = "srname" ></p>
+    <p> Email: <input type="email" name = "mail" ></p>
+    <p> Ticker: <input  type="text" name = "tcker" ></p>
+    <p> Price: <input   type="number" name = "price" ></p>
+    
+
+    <input type="submit" value="Add">
+    
+
+</form>
+
+
+
+
+{% endblock %}

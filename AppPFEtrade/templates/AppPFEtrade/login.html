@@ -1,0 +1,21 @@
+{% extends "AppPFEtrade/padre.html" %}
+
+{% load static %}
+
+
+
+{% block titulo %} 
+<br><br>
+<h2><u> Log in view </h2></u> <br><br>
+
+<form action="" method="POST"> {% csrf_token %}
+
+
+    {{formulary.as_p}}
+    <br><br>
+    <ul><input type="submit" value="Log in"></ul>
+
+
+</form>
+
+{% endblock %}

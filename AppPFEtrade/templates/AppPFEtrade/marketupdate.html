@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<u><h1>Offers available</h1></u>
+
+
+    
+    {% if tickers%}
+
+        {% for tick in tickers %}
+            
+            <ul><button>
+            <a href="{% url 'DeletePosition' tick.position %}"> Delete </a>
+            </button></ul>
+            
+            <ul><button>
+            <a href="{% url 'editmarket' tick.id %}">Edit</a>
+            <button></ul>
+            
+            
+        
+            <li> Position: {{tick.position}} </li>
+            <li> Price: {{tick.price}} </li>
+            <li> ID: {{tick.id}}</li>
+            
+            ----
+        
+            
+
+        {% endfor %}
+    {% else %}
+
+            <h3> No positions found</h3>
+    {% endif %}
+    
+    <br><br>
+
+    <form action="/APPFE/market/" method="GET">
+    
+        <input type="submit" value="Back">
+    
+    </form>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Profile ({{username}})</title>
+</head>
+<body>
+    <h1> Your Profile <u>{{user}}</u></h1>
+
+    <form method="post" enctype="multipart/form-data"> {% csrf_token %}
+
+        {{ formulary.as_p }}
+        {{ avatar_form.as_p }}
+
+        <button type="submit"> Update </button>
+    </form>
+    
+    <form action="/APPFE/inicio" mehtod = "POST">
+        <input type="submit" value="Back">
+    </form>
+</body>
+</html>
